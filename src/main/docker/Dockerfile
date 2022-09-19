@@ -1,8 +1,10 @@
-FROM eclipse-temurin:11.0.16_8-jdk
+FROM obsidiandynamics/kafdrop
 
-ADD kafdrop.sh /
-ADD kafdrop*tar.gz /
-
-RUN chmod +x /kafdrop.sh
+RUN rm -r /kafdrop-3.30.0
+RUN mkdir kafdrop-3.31.0
+copy /kafdrop-3.31.0 /kafdrop-3.31.0 \
+COPY <filename>.zip /
+RUN unzip <filename>.zip
+RUN rm <filename>.zip
 
 ENTRYPOINT ["/kafdrop.sh"]
